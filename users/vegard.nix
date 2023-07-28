@@ -62,9 +62,24 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    EDITOR = "neovim";
+    EDITOR = "nvim";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+    # Git config
+    git = {
+      enable = true;
+      userName = "Vegard Seines";
+      userEmail = "vegsei@gmail.com";
+    };
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      envExtra = ''
+        alias source_system_config='sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard'
+      '';
+    };
+  };
 }

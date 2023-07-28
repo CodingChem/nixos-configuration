@@ -75,6 +75,7 @@
     isNormalUser = true;
     description = "Vegard Seines";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  firefox
     #  thunderbird
@@ -94,6 +95,7 @@
   bitwarden
   google-chrome
   home-manager
+  zsh
   ];
   environment.gnome.excludePackages = (with pkgs; [
   gnome-tour
@@ -108,6 +110,7 @@
   # };
 
   # List services that you want to enable:
+  programs.zsh.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
