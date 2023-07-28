@@ -18,7 +18,7 @@
         vegard = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system; };
           modules = [
-            ./noxos/configuration.nix
+            ./nixos/configuration.nix
           ];
         };
       };
