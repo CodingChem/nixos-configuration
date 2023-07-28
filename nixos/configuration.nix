@@ -93,6 +93,7 @@
   git
   bitwarden
   google-chrome
+  home-manager
   ];
   environment.gnome.excludePackages = (with pkgs; [
   gnome-tour
