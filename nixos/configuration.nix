@@ -45,8 +45,9 @@
   };
 
   # Configure console keymap
-  console.keyMap = "no";
-
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
