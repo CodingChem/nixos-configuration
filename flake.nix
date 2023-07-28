@@ -6,12 +6,5 @@
   };
 
   outputs = { self, nixpkgs }: {
-    let {
-
-    }
-    in {
-
-    }
-
   };
 }
