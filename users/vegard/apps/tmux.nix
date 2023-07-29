@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   tmux = {
     enable = true;
