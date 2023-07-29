@@ -78,8 +78,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
     ];
   };
 
@@ -89,12 +87,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  neovim
-  tmux
-  kitty
+  vim
   git
-  bitwarden
-  google-chrome
   home-manager
   zsh
   ];

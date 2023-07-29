@@ -18,6 +18,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    neovim
+    tmux
+    kitty
+    bitwarden
+    google-chrome
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -77,6 +82,13 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
+      plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      ];
       envExtra = ''
         alias source_system_config='sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard'
       '';
