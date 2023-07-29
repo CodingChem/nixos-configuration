@@ -24,7 +24,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   # For connecting airpods
-  hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
+  # hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
@@ -49,7 +49,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   sound.enable = true;
