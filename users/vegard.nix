@@ -84,6 +84,7 @@
       baseIndex = 1;
       clock24 = true;
       prefix = "C-a";
+      terminal = "screen-256color";
       plugins = with pkgs; [
       {
         plugin = tmuxPlugins.resurrect;
@@ -120,6 +121,14 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
+      dotDir = ".config/zsh";
+      history.path = ".config/zsh/zsh_history";
+      syntaxHighlighting.enable = true;
+      shellAliases = [
+      {
+        source_system_config = "sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard";
+      }
+      ]
       plugins = with pkgs; [
       {
         name = "powerlevel10k";
@@ -128,7 +137,7 @@
       }
       ];
       envExtra = ''
-        alias source_system_config='sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard'
+        alias 
         source ~/.p10k.zsh
       '';
     };
