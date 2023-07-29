@@ -113,7 +113,7 @@
           set -g @catppuccin_r_right_separator ""
         '';
       }
-      ]
+      ];
     };
     # zsh with plugins
     zsh = {
