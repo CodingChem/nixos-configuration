@@ -70,6 +70,11 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+  #import app configurations:
+  imports = [
+    ./apps/zsh.nix
+    ./apps/tmux.nix
+  ];
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
@@ -80,64 +85,5 @@
       userEmail = "vegsei@gmail.com";
     };
     # tmux
-    tmux = {
-      enable = true;
-      baseIndex = 1;
-      clock24 = true;
-      prefix = "C-a";
-      terminal = "screen-256color";
-      plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '5' # minutes
-          '';
-      }
-      {
-        plugin = tmuxPlugins.vim-tmux-navigator;
-        extraConfig = ''
-
-        '';
-      }
-      {
-        plugin = tmuxPlugins.catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavour 'frappe'
-          set -g @catppuccin_powerline_icons_theme_enabled on
-          set -g @catppuccin_l_left_separator ""
-          set -g @catppuccin_l_right_separator ""
-          set -g @catppuccin_r_left_separator ""
-          set -g @catppuccin_r_right_separator ""
-        '';
-      }
-      ];
-    };
-    # zsh with plugins
-    zsh = {
-      enable = true;
-      enableAutosuggestions = true;
-      enableCompletion = true;
-      dotDir = ".config/zsh";
-      history.path = ".config/zsh/zsh_history";
-      syntaxHighlighting.enable = true;
-      shellAliases = {
-        source_system_config = "sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard";
-      };
-      plugins = with pkgs; [
-      {
-        name = "powerlevel10k";
-      src = pkgs.zsh-powerlevel10k;
-      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      ];
-      envExtra = ''
-        source ~/.p10k.zsh
-      '';
-    };
   };
 }
