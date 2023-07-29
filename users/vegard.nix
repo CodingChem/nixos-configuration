@@ -18,11 +18,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    neovim
-    tmux
-    kitty
-    bitwarden
-    google-chrome
+    pkgs.kitty
+    pkgs.neovim
+    pkgs.tmux
+    pkgs.bitwarden
+    pkgs.google-chrome
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -78,19 +78,58 @@
       userName = "Vegard Seines";
       userEmail = "vegsei@gmail.com";
     };
+    # tmux
+    tmux = {
+      enable = true;
+      baseIndex = 1;
+      clock24 = true;
+      prefix = "C-a";
+      plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '5' # minutes
+          '';
+      }
+      {
+        plugin = tmuxPlugins.vim-tmux-navigator;
+        extraConfig = ''
+
+        '';
+      }
+      {
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'frappe'
+          set -g @catppuccin_powerline_icons_theme_enabled on
+          set -g @catppuccin_l_left_separator ""
+          set -g @catppuccin_l_right_separator ""
+          set -g @catppuccin_r_left_separator ""
+          set -g @catppuccin_r_right_separator ""
+        '';
+      }
+      ]
+    };
+    # zsh with plugins
     zsh = {
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      plugins = [
+      plugins = with pkgs; [
       {
         name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
       ];
       envExtra = ''
         alias source_system_config='sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard'
+        source ~/.p10k.zsh
       '';
     };
   };
