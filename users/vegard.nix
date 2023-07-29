@@ -17,12 +17,13 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.kitty
-    pkgs.neovim
-    pkgs.tmux
-    pkgs.bitwarden
-    pkgs.google-chrome
+  home.packages = with pkgs; [
+    kitty
+    neovim
+    tmux
+    bitwarden
+    google-chrome
+    nodejs_20
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -124,11 +125,9 @@
       dotDir = ".config/zsh";
       history.path = ".config/zsh/zsh_history";
       syntaxHighlighting.enable = true;
-      shellAliases = [
-      {
+      shellAliases = {
         source_system_config = "sudo nixos-rebuild switch --flake ~/.config/nixos/#vegard";
-      }
-      ]
+      };
       plugins = with pkgs; [
       {
         name = "powerlevel10k";
@@ -137,7 +136,6 @@
       }
       ];
       envExtra = ''
-        alias 
         source ~/.p10k.zsh
       '';
     };
