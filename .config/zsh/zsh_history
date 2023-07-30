@@ -1,0 +1,5 @@
+: 1690745977:0;ls
+: 1690746003:0;nix-shell -p zoom-us
+: 1690746008:0;clear
+: 1690746013:0;source_system_config
+: 1690746133:0;git add .
