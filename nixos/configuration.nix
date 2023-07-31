@@ -27,11 +27,9 @@
     xkbVariant = "";
   };
   services.gnome.core-utilities.enable = false;
-  environment.gnome.exludePackages = [
-    pkgs.gnome-tour
-
-  ]; 
-
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+  ];
 
 
 #<---------------------------------------------->|
