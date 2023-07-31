@@ -15,6 +15,9 @@
 #<---------------------------------------------->|
 # Enable the X11 windowing system.
   services.xserver.enable = true;
+# Remove Xterm:
+  services.xserver.excludePackages = [ pkgs.xterm ];
+  services.xserver.desktopManager.xterm.enable = false;
 # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -24,6 +27,10 @@
     xkbVariant = "";
   };
   services.gnome.core-utilities.enable = false;
+  environment.gnome.exludePackages = [
+    pkgs.gnome-tour
+
+  ]; 
 
 
 
@@ -59,7 +66,6 @@
 # For connecting airpods
 # hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
 # Enable the OpenSSH daemon.
 # services.openssh.enable = true;
 
