@@ -21,4 +21,8 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
   ];
+# Gnome apps i do want
+  environment.systemPackages = with pkgs; [
+  gnome.gnome-calendar
+  ];
 }
