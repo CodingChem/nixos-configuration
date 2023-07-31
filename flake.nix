@@ -25,7 +25,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.vegard = import ./users/vegard/home.nix;
+              home-manager.users.vegard = import ./nixos/users/vegard/home.nix;
             }
           ];
         };
