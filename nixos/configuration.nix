@@ -76,16 +76,5 @@
   services.printing.enable = false;
   programs.zsh.enable = true;
 #------------------------------------------------
-#   Users                              
-#------------------------------------------------
-  users.users.vegard = {
-    isNormalUser = true;
-    description = "Vegard Seines";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
-  };
-#------------------------------------------------
   system.stateVersion = "23.05"; # Dont touch
 }

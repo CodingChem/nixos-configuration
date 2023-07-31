@@ -1,6 +1,19 @@
 { config, pkgs, ... }:
 
 {
+
+#------------------------------------------------
+#   Users                              
+#------------------------------------------------
+  users.users.vegard = {
+    isNormalUser = true;
+    description = "Vegard Seines";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+    ];
+  };
+
   home.username = "vegard";
   home.homeDirectory = "/home/vegard";
   home.stateVersion = "23.05"; # Please read the comment before changing.
