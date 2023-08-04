@@ -73,6 +73,7 @@
     home-manager
     git
     zsh
+    xclip
   ];
 #------------------------------------------------
 #   Services                           
