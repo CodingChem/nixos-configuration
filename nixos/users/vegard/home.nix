@@ -14,6 +14,8 @@
     wget
     unzip
     python312
+    gnumake
+    gcc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
