@@ -5,7 +5,7 @@
 #<---------------------------------------------->|
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true;
+    enableNvidiaPatches = true;
     xwayland.enable = true;
   };
   environment.sessionVariables = {
