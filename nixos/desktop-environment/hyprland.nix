@@ -33,5 +33,5 @@
     pkgs.rofi-wayland
   ];
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+#  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
