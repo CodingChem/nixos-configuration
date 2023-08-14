@@ -19,7 +19,7 @@
     opengl.enable = true;
 
 # Most wayland compositors need this
-    nvidia.modsetting.enable = true;
+    nvidia.modesetting.enable = true;
   };
   environment.systemPackages = [
   (pkgs.waybar.overrideAttrs (oldAttrs: {
