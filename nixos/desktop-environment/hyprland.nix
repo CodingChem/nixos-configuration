@@ -8,6 +8,7 @@
     enableNvidiaPatches = true;
     xwayland.enable = true;
   };
+  services.blueman.enable = true;
   environment.sessionVariables = {
 # Invisible coursor fix
     WLR_NO_HARDWARE_COURSORS = "1";
@@ -26,12 +27,14 @@
                               mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
                               })
   )
-    pkgs.mako
+    pkgs.dunst
     pkgs.wl-clipboard
     pkgs.libnotify
     pkgs.swww
     pkgs.rofi-wayland
     pkgs.networkmanagerapplet
+    pkgs.bluez
+    pkgs.bluez-tools
   ];
   xdg.portal.enable = true;
 #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

@@ -55,6 +55,7 @@
 # For connecting airpods or other tricky bluetooth devices, uncomment the following line
 # After pairing the devices this can be commented again
 # hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
+  hardware.bluetooth.enable = true;
 #-------------------------------------------------
 #   Networking                 
 #-------------------------------------------------
