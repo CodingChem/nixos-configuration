@@ -31,6 +31,7 @@
     pkgs.libnotify
     pkgs.swww
     pkgs.rofi-wayland
+    pkgs.networkmanagerapplet
   ];
   xdg.portal.enable = true;
 #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

@@ -16,6 +16,8 @@
     python312
     gnumake
     gcc
+    obsidian
+    onedrive
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
