@@ -11,7 +11,7 @@
   services.blueman.enable = true;
   environment.sessionVariables = {
 # Invisible coursor fix
-    WLR_NO_HARDWARE_COURSORS = "1";
+#    WLR_NO_HARDWARE_COURSORS = "1";
 # Enable wayland for electron apps
     NIXOS_OZONE_WL = "1";
   };
