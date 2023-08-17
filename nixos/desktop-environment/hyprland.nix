@@ -22,20 +22,19 @@
 # Most wayland compositors need this
     nvidia.modesetting.enable = true;
   };
-  environment.systemPackages = [
-  (pkgs.waybar.overrideAttrs (oldAttrs: {
-                              mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-                              })
-  )
-    pkgs.dunst
-    pkgs.wl-clipboard
-    pkgs.libnotify
-    pkgs.swww
-    pkgs.rofi-wayland
-    pkgs.networkmanagerapplet
-    pkgs.bluez
-    pkgs.bluez-tools
+environment.systemPackages = with pkgs; [
+   (waybar.overrideAttrs (oldAttrs: {
+    mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    }))
+    dunst
+    wl-clipboard
+    libnotify
+    swww
+    rofi-wayland
+    networkmanagerapplet
+    bluez
+    bluez-tools
   ];
   xdg.portal.enable = true;
-#  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
